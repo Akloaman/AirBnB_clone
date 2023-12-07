@@ -1,76 +1,49 @@
-# AirBnB Clone - The Console
+<p align="center">
+  <img src="https://github.com/Adeniyii/AirBnB_clone/blob/main/assets/hbnb_logo.png" alt="HolbertonBnB logo">
+</p>
 
-  
-![HolBnB clone](https://github.com/monoprosito/AirBnB_clone/blob/feature/console/hBnB.png?raw=true)
-Welcome to the AirBnB clone project! (The Holberton B&B)
 
-  
+<h1 align="center">HolbertonBnB</h1>
+<p align="center">An AirBnB clone.</p>
 
-## Getting Started
+---
 
- 
-**What’s a command interpreter?**
+## Description :label:
 
-Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to
+HolbertonBnB is a complete web application, integrating database storage, a back-end API, and front-end interface in a clone of AirBnB.
 
-be able to manage the objects of our project:
+This team project is part of the (Alx) Holberton School Software Engineering program. </br>
+It represents the first step towards building a full web application.
 
-  
+This first step consists of:
+- a custom command-line interface for data management,
+- and the base classes for the storage of this data.
 
-- Create a new object (ex: a new User or a new Place)
+## Usage 💻
 
-- Retrieve an object from a file, a database etc…
+The console works both in interactive mode and non-interactive mode, much like a Unix shell.
+It prints a prompt **(hbnb)** and waits for the user for input.
 
-- Do operations on objects (count, compute stats, etc…)
+Command | Example
+------- | -------
+Run the console | ```./console.py```
+Quit the console | ```(hbnb) quit```
+Display the help for a command | ```(hbnb) help <command>```
+Create an object (prints its id)| ```(hbnb) create <class>```
+Show an object | ```(hbnb) show <class> <id>``` or ```(hbnb) <class>.show(<id>)```
+Destroy an object | ```(hbnb) destroy <class> <id>``` or ```(hbnb) <class>.destroy(<id>)```
+Show all objects, or all instances of a class | ```(hbnb) all``` or ```(hbnb) all <class>```
+Update an attribute of an object | ```(hbnb) update <class> <id> <attribute name> "<attribute value>"``` or ```(hbnb) <class>.update(<id>, <attribute name>, "<attribute value>")```
 
-- Update attributes of an object
+### Interactive mode (example)
 
-- Destroy an object
-
-  
-
-### Learning Objectives
-
-  
-
-## General
-
- - How to create a Python package
-   
-  - How to create a command interpreter in Python using the cmd module
-   
-   - What is Unit testing and how to implement it in a large project
-   
-   - How to serialize and deserialize a Class
-   
-   - How to write and read a JSON file
-   
-   - How to manage datetime
-   
-   - What is an UUID
-   
-   - What is *args and how to use it
-   
-   - What is **kwargs and how to use it
-   
-   - How to handle named arguments in a function
-
-  
-  
-
-## Execution
-
-  
-Your shell should work like this in interactive mode:
-
-  
-```
+```bash
 $ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
-EOF help quit
+EOF  help  quit
 
 (hbnb)
 (hbnb)
@@ -78,17 +51,15 @@ EOF help quit
 $
 ```
 
-But also in non-interactive mode: (like the Shell project in C)
+### Non-interactive mode (example)
 
-```
+```bash
 $ echo "help" | ./console.py
-
 (hbnb)
 
 Documented commands (type help <topic>):
 ========================================
-
-EOF help quit
+EOF  help  quit
 (hbnb)
 $
 $ cat test_help
@@ -97,57 +68,30 @@ $
 $ cat test_help | ./console.py
 (hbnb)
 
-  
 Documented commands (type help <topic>):
 ========================================
-EOF help quit
+EOF  help  quit
 (hbnb)
 $
-
 ```
 
-## Usage Examples
+## Testing :straight_ruler:
 
-**Launching the console**
+Unittests for the HolbertonBnB project are defined in the [tests](./tests)
+folder. To run the entire test suite simultaneously, execute the following command:
+
 ```
-$ ./console.py
-(hbnb) 
+$ python3 unittest -m discover tests
 ```
-**Creating a new object**
+
+Alternatively, you can specify a single test file to run at a time:
+
 ```
-(hbnb) create
-** class name missing **
-(hbnb) create User
-670265eb-5982-489e-8b92-2dff054f0776
+$ python3 unittest -m tests/test_console.py
 ```
-**Show an object**
-```
-(hbnb) show User
-** instance id missing **
-(hbnb) show User 670265eb-5982-489e-8b92-2dff054f0776
-[User] (670265eb-5982-489e-8b92-2dff054f0776) {'created_at': datetime.datetime(2020, 2, 19, 18, 8, 58, 458246), 'id': '670265eb-5982-489e-8b92-2dff054f0776', 'updated_at': datetime.datetime(2020, 2, 19, 18, 8, 58, 458261)}
-```
-**Update an object**
-```
-(hbnb) all
-["[User] (70f71c16-962b-48ad-9df8-9203fe23d612) {'created_at': datetime.datetime(2020, 2, 19, 18, 11, 32, 341144), 'id': '70f71c16-962b-48ad-9df8-9203fe23d612', 'updated_at': datetime.datetime(2020, 2, 19, 18, 11, 32, 341161)}"]
-(hbnb) update
-** class name missing **
-(hbnb) update User
-** instance id missing **
-(hbnb) update User 70f71c16-962b-48ad-9df8-9203fe23d612
-** attribute name missing **
-(hbnb) update User 70f71c16-962b-48ad-9df8-9203fe23d612  Age "20"
-(hbnb) all
-["[User] (70f71c16-962b-48ad-9df8-9203fe23d612) {'Age': 20, 'created_at': datetime.datetime(2020, 2, 19, 18, 11, 32, 341144), 'id': '70f71c16-962b-48ad-9df8-9203fe23d612', 'updated_at': datetime.datetime(2020, 2, 19, 18, 13, 9, 937933)}"]
-(hbnb)
-```
-**Destroy an object**
-```
-(hbnb) destroy
-** class name missing **
-(hbnb) destroy User
-** instance id missing **
-(hbnb) destroy User 670265eb-5982-489e-8b92-2dff054f0776
-(hbnb)
-```
+
+
+## Authors :black_nib:
+
+* **Atabong Cecilia** <[cecilia-89](https://github.com/cecilia-89)>
+* **Ijabadeniyi Ifedayo** <[Adeniyii](https://github.com/Adeniyii)>
